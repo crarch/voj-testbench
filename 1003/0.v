@@ -76,9 +76,8 @@ module adder_tb();
 	end
 	
     
-    always begin
+    always@(*)begin
         mismatch=y_c!=r_c;
-        #1;
     end
 endmodule
 

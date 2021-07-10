@@ -31,8 +31,7 @@ module adder_tb();
 	end
 	
     
-    always begin
+    always@(*)begin
         mismatch=y_a!=r_a;
-        #1;
     end
 endmodule
