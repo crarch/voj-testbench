@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
 module adder_tb();
-    wire y_b;
-    wire r_b;
+    wire [7:0] y_b;
+    wire [7:0] r_b;
     reg mismatch;
 
     reg [2:0] i_a;
@@ -56,16 +56,20 @@ module adder_tb();
 	
     
     always@(*)begin
-        mismatch=y_c!=r_c;
+        mismatch=y_b!=r_b;
     end
 endmodule
 
 
 module reference(
     input [2:0] a,
-    output [7:0] b
+    output reg [7:0] b
 );
-    assign b=8'b0;
-    assign b[a]=1'b1;
+    
+    always@(*)begin
+        for(int i=0;i<8;i++)begin
+            b[i]=(i==a);
+        end
+    end
     
 endmodule
