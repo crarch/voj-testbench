@@ -65,10 +65,11 @@ module adder_tb();
     
 	
 	initial begin
-        integer seed;
+        integer seed=$random(114);
+        
         for(int i=0;i<10;i++)begin
-            i_a=$random(seed)%128;
-            i_b=$random(seed)%128;
+            i_a=$random%128;
+            i_b=$random%128;
             i_c=$random%128;
             i_d=$random%128;
             i_e=$random%128;
