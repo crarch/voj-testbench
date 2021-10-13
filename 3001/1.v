@@ -73,8 +73,8 @@ module adder_tb();
         seed=$urandom(seed);
 
         for(int i=0;i<10;i++)begin
-            i_a=$urandom(seed)%128;
-            i_b=$urandom(seed)%128;
+            i_a=$urandom%128;
+            i_b=$urandom%128;
             i_c=$urandom%128;
             i_d=$urandom%128;
             i_e=$urandom%128;

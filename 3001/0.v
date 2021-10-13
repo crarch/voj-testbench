@@ -65,14 +65,17 @@ module adder_tb();
     
 	
 	initial begin
-        i_a=8'd1;
-        i_b=8'd1;
-        i_c=8'd1;
-        i_d=8'd1;
-        i_e=8'd1;
-        i_f=8'd1;
-        i_g=8'd1;
-        i_h=8'd1;
+        for(int i=0;i<10;i++)begin
+            i_a=$urandom%128;
+            i_b=$urandom%128;
+            i_c=$urandom%128;
+            i_d=$urandom%128;
+            i_e=$urandom%128;
+            i_f=$urandom%128;
+            i_g=$urandom%128;
+            i_h=$urandom%128;
+            #1;
+        end
 	$finish;
 	end
 	
