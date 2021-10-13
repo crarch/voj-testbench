@@ -65,6 +65,7 @@ module adder_tb();
     
 	
 	initial begin
+        integer seed;
         for(int i=0;i<10;i++)begin
             i_a=$random%128;
             i_b=$random%128;
