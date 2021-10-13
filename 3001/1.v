@@ -63,9 +63,15 @@ module adder_tb();
         );
 	end
     
-	reg tmp;
 	initial begin
-        tmp=$random($time)%2;
+        
+        reg [31:0] seed;
+        int fh;
+        fh = $fopen("/dev/urandom", "r");
+        $fgets(seed,fh);
+        $fclose(fh);
+        seed=$random(seed);
+
         for(int i=0;i<10;i++)begin
             i_a=$random%128;
             i_b=$random%128;
