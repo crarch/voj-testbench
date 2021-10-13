@@ -65,16 +65,18 @@ module adder_tb();
     
 	
 	initial begin
-        i_a=$random%128;
-        i_b=$random%128;
-        i_c=$random%128;
-        i_d=$random%128;
-        i_e=$random%128;
-        i_f=$random%128;
-        i_g=$random%128;
-        i_h=$random%128;
-        #1
-	$finish;
+        for(int i=0;i<10;i++)begin
+            #1;
+            i_a=$random%128;
+            i_b=$random%128;
+            i_c=$random%128;
+            i_d=$random%128;
+            i_e=$random%128;
+            i_f=$random%128;
+            i_g=$random%128;
+            i_h=$random%128;
+        end
+    	$finish;
 	end
 	
     
