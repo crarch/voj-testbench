@@ -70,17 +70,17 @@ module adder_tb();
         fh = $fopen("/dev/urandom", "r");
         $fgets(seed,fh);
         $fclose(fh);
-        seed=$random(seed);
+        seed=$urandom(seed);
 
         for(int i=0;i<10;i++)begin
-            i_a=$random(seed)%128;
-            i_b=$random%128;
-            i_c=$random%128;
-            i_d=$random%128;
-            i_e=$random%128;
-            i_f=$random%128;
-            i_g=$random%128;
-            i_h=$random%128;
+            i_a=$urandom(seed)%128;
+            i_b=$urandom(seed)%128;
+            i_c=$urandom%128;
+            i_d=$urandom%128;
+            i_e=$urandom%128;
+            i_f=$urandom%128;
+            i_g=$urandom%128;
+            i_h=$urandom%128;
             #1;
         end
     	$finish;
