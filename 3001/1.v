@@ -107,6 +107,6 @@ module reference
     output reg [(WIDTH-1):0] q
 );
     
-    assign q=&{a,b,c,d,e,f,g,h};
+    assign q=a&b&c&d&e&f&g&h;
     
 endmodule
