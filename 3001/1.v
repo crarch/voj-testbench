@@ -66,7 +66,6 @@ module adder_tb();
 	
 	initial begin
         for(int i=0;i<10;i++)begin
-            #1;
             i_a=$random%128;
             i_b=$random%128;
             i_c=$random%128;
@@ -75,6 +74,7 @@ module adder_tb();
             i_f=$random%128;
             i_g=$random%128;
             i_h=$random%128;
+            #1;
         end
     	$finish;
 	end
