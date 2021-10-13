@@ -65,7 +65,7 @@ module adder_tb();
     
 	
 	initial begin
-        for(int i=0;i<10;i++)begin
+        for(int i=0;i<20;i++)begin
             i_a=$urandom%128;
             i_b=$urandom%128;
             i_c=$urandom%128;
