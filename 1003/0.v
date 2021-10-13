@@ -40,38 +40,18 @@ module adder_tb();
 	end
 	
 	initial begin
-	i_a=0;
-	i_b=1;
-        #1;
-        i_a=1;
-        i_b=1;
-        #1;
-        i_a=1;
-        i_b=0;
-        #1;
-        i_a=0;
-        i_b=0;
-        #1;
-        i_a=1;
-        i_b=0;
-        #1;
-        i_a=0;
-        i_b=1;
-        #1;
-        i_a=1;
-        i_b=1;
-        #1;
-        i_a=1;
-        i_b=0;
-        #1;
-        i_a=0;
-        i_b=0;
-        #1;
-        i_a=1;
-        i_b=1;
-        #1;
-        i_a=1;
-        i_b=0;
+        reg [31:0] seed;
+        int fh;
+        fh = $fopen("/dev/urandom", "r");
+        $fgets(seed,fh);
+        $fclose(fh);
+        seed=$urandom(seed);
+
+        for(int i=0;i<10;i++)begin
+            i_a=$urandom%2;
+            i_b=$urandom%2;
+            #1;
+        end
 	$finish;
 	end
 	
