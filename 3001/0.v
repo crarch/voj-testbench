@@ -17,7 +17,7 @@ module adder_tb();
     reg [(WIDTH-1):0] i_g;
     reg [(WIDTH-1):0] i_h;
     
-	top_module #(WIDTH,1) top_module_ins (
+	top_module #(2,WIDTH) top_module_ins (
 		.a(i_a),
 		.b(i_b),
 		.c(i_c),
@@ -29,7 +29,7 @@ module adder_tb();
         .q(y_q)
 	);
     
-    reference #(WIDTH,1) reference_ins(
+    reference #(2,WIDTH) reference_ins(
 		.a(i_a),
 		.b(i_b),
 		.c(i_c),
