@@ -63,10 +63,10 @@ module adder_tb();
         );
 	end
     
-	wire tmp;
+	reg tmp;
 	initial begin
         integer seed;
-        tmp=$random(114);
+        tmp=$random(114)%2;
         for(int i=0;i<10;i++)begin
             i_a=$random%128;
             i_b=$random%128;
