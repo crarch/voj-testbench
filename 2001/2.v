@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
 module adder_tb();
-    parameter WIDTH=8;
+    parameter WIDTH=16;
     //yours
     wire [(WIDTH-1):0] y_q;
     //reference
@@ -63,20 +63,27 @@ module adder_tb();
         );
 	end
     
-	
 	initial begin
+        
+        reg [31:0] seed;
+        int fh;
+        fh = $fopen("/dev/urandom", "r");
+        $fgets(seed,fh);
+        $fclose(fh);
+        seed=$urandom(seed);
+
         for(int i=0;i<20;i++)begin
-            i_a=$urandom%128;
-            i_b=$urandom%128;
-            i_c=$urandom%128;
-            i_d=$urandom%128;
-            i_e=$urandom%128;
-            i_f=$urandom%128;
-            i_g=$urandom%128;
-            i_h=$urandom%128;
+            i_a=$urandom%65536;
+            i_b=$urandom%65536;
+            i_c=$urandom%65536;
+            i_d=$urandom%65536;
+            i_e=$urandom%65536;
+            i_f=$urandom%65536;
+            i_g=$urandom%65536;
+            i_h=$urandom%65536;
             #1;
         end
-	$finish;
+    	$finish;
 	end
 	
     
