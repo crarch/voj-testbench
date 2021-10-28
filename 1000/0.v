@@ -16,7 +16,7 @@ module adder_tb();
 	end
     
 	initial begin
-        mismatch=0'b1;
+        mismatch=1'b1;
 	end
 	
 endmodule
