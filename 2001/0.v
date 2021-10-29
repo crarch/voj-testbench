@@ -91,6 +91,6 @@ module reference
     output [7:0] led 
 );
     
-    assign led=8'hff-((1<<(switch))&(8{(enable==3'd4)}));//fix me
+    assign led=8'hff-((1<<(switch))&({8{(enable==3'd4)}}));//fix me
     
 endmodule
