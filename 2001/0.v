@@ -7,8 +7,8 @@ module adder_tb();
     reg mismatch;
 
     //input
-    reg i_clk,i_rst,i_enable;
-    reg [2:0] i_switch;
+    reg i_clk,i_rst;
+    reg [2:0] i_switch,i_enable;
     
 	top_module top_module_ins (
         .clk(i_clk),
@@ -77,11 +77,12 @@ endmodule
 
 module reference
 (
-    input clk,rst,enable,
+    input clk,rst,
+    input [2:0] enable,
     input [2:0] switch,
     output [7:0] led 
 );
     
-    assign led=8'hff-(1<<(switch));//fix me
+    assign led=8'hff-((1<<(switch))&(enable==3'd4));//fix me
     
 endmodule
