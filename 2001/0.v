@@ -82,6 +82,6 @@ module reference
     output [7:0] led 
 );
     
-    assign led=8'hff-(2<<(switch+1));//fix me
+    assign led=8'hff-(2<<(switch));//fix me
     
 endmodule
