@@ -60,10 +60,10 @@ module adder_tb();
             i_switch=$urandom%8;
             
             if($urandom%7==0)begin
-                i_enable=$urandom%8
+                i_enable=$urandom%8;
             end else
             begin
-                i_enable=3'b100
+                i_enable=3'b100;
             end
             
             #1;
