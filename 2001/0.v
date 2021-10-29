@@ -55,9 +55,17 @@ module adder_tb();
         
         i_clk=1'b0;
         i_rst=1'b0;
-        i_enable=1'b1;
+        i_enable=3'b100;
         for(int i=0;i<40;i++)begin
             i_switch=$urandom%8;
+            
+            if($urandom%7==0)begin
+                i_enable=$urandom%8
+            end else
+            begin
+                i_enable=3'b100
+            end
+            
             #1;
         end
     	$finish;
