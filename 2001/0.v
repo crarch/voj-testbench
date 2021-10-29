@@ -8,7 +8,7 @@ module adder_tb();
 
     //input
     reg i_clk,i_rst,i_enable;
-    reg i_switch;
+    reg [2:0] i_switch;
     
 	top_module top_module_ins (
         .clk(i_clk),
