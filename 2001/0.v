@@ -75,6 +75,6 @@ module reference
     output [7:0] led 
 );
     
-    assign output=8'b0;//fix me
+    assign led=8'b0;//fix me
     
 endmodule
