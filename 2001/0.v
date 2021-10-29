@@ -71,7 +71,7 @@ endmodule
 module reference
 (
     input clk,rst,enable,
-    input switch,
+    input [2:0] switch,
     output [7:0] led 
 );
     
