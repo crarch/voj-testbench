@@ -1,44 +1,29 @@
 `timescale 1ns/1ns
 module adder_tb();
-    parameter WIDTH=8;
     //yours
-    wire [(WIDTH-1):0] y_q;
+    wire [7:0] y_led;
     //reference
-    wire [(WIDTH-1):0] r_q;
+    wire [7:0] r_led;
     reg mismatch;
 
     //input
-    reg [(WIDTH-1):0] i_a;
-    reg [(WIDTH-1):0] i_b;
-    reg [(WIDTH-1):0] i_c;
-    reg [(WIDTH-1):0] i_d;
-    reg [(WIDTH-1):0] i_e;
-    reg [(WIDTH-1):0] i_f;
-    reg [(WIDTH-1):0] i_g;
-    reg [(WIDTH-1):0] i_h;
+    reg i_clk,i_rst,i_enable;
+    reg i_switch;
     
-	top_module #(2,WIDTH) top_module_ins (
-		.a(i_a),
-		.b(i_b),
-		.c(i_c),
-		.d(i_d),
-		.e(i_e),
-		.f(i_f),
-		.g(i_g),
-		.h(i_h),
-        .q(y_q)
+	top_module top_module_ins (
+        .clk(i_clk),
+        .rst(i_rst),
+        .enable(i_enable),
+        .switch(i_switch),
+        .led(y_led)
 	);
     
-    reference #(2,WIDTH) reference_ins(
-		.a(i_a),
-		.b(i_b),
-		.c(i_c),
-		.d(i_d),
-		.e(i_e),
-		.f(i_f),
-		.g(i_g),
-		.h(i_h),
-        .q(r_q)
+    reference reference_ins(
+        .clk(i_clk),
+        .rst(i_rst),
+        .enable(i_enable),
+        .switch(i_switch),
+        .led(r_led)
 	);
     
 
@@ -46,18 +31,14 @@ module adder_tb();
         $dumpvars(
             1,
             //input
-            adder_tb.i_a,
-            adder_tb.i_b,
-            adder_tb.i_c,
-            adder_tb.i_d,
-            adder_tb.i_e,
-            adder_tb.i_f,
-            adder_tb.i_g,
-            adder_tb.i_h,
+            i_clk,
+            i_rst,
+            i_enable,
+            i_switch,
             //yours
-            adder_tb.y_q,
+            adder_tb.y_led,
             //reference
-            adder_tb.r_q,
+            adder_tb.r_led,
             //mismatch    
             adder_tb.mismatch
         );
@@ -65,41 +46,35 @@ module adder_tb();
     
 	
 	initial begin
-        for(int i=0;i<20;i++)begin
-            i_a=$urandom%128;
-            i_b=$urandom%128;
-            i_c=$urandom%128;
-            i_d=$urandom%128;
-            i_e=$urandom%128;
-            i_f=$urandom%128;
-            i_g=$urandom%128;
-            i_h=$urandom%128;
+        i_clk=1'b0;
+        i_rst=1'b0;
+        i_enable=1'b1;
+        for(int i=0;i<40;i++)begin
+            i_switch=$urandom%8;
             #1;
         end
-	$finish;
+    	$finish;
 	end
+    
+    always begin
+        #1;
+        i_clk<=~i_clk;
+    end
 	
     
     always@(*)begin
-        mismatch=y_q!==r_q;
+        mismatch=y_led!==r_led;
     end
 endmodule
 
 
 module reference
-#(parameter Port_Num=2,parameter WIDTH=8)
 (
-    input [(WIDTH-1):0] a,
-    input [(WIDTH-1):0] b,
-    input [(WIDTH-1):0] c,
-    input [(WIDTH-1):0] d,
-    input [(WIDTH-1):0] e,
-    input [(WIDTH-1):0] f,
-    input [(WIDTH-1):0] g,
-    input [(WIDTH-1):0] h,
-    output reg [(WIDTH-1):0] q
+    input clk,rst,enable,
+    input switch,
+    output [7:0] led 
 );
     
-    assign q=a&b&c&d&e&f&g&h;
+    assign output=8'b0;//fix me
     
 endmodule
