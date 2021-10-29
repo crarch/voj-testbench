@@ -46,6 +46,13 @@ module adder_tb();
     
 	
 	initial begin
+        reg [31:0] seed;
+        int fh;
+        fh = $fopen("/dev/urandom", "r");
+        $fgets(seed,fh);
+        $fclose(fh);
+        seed=$urandom(seed);
+        
         i_clk=1'b0;
         i_rst=1'b0;
         i_enable=1'b1;
@@ -75,6 +82,6 @@ module reference
     output [7:0] led 
 );
     
-    assign led=8'b0;//fix me
+    assign led=8'hff-(2<<(switch-1));;//fix me
     
 endmodule
