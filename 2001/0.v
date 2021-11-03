@@ -63,14 +63,14 @@ module adder_tb();
                 i_enable=$urandom%8;
             end else
             begin
-                i_enable=3'b100;
+                i_enable<=3'b100;
             end
             
-            if($urandom%11==0)begin
-                i_rst=1'b1;
+            if($urandom%5==0)begin
+                i_rst<=1'b1;
             end else
             begin
-                i_rst=1'b0;
+                i_rst<=1'b0;
             end
             
             #1;
@@ -85,7 +85,7 @@ module adder_tb();
 	
     
     always@(*)begin
-        mismatch=r_led!=='x&&y_led!==r_led;
+        mismatch=(r_led!=='x)&&y_led!==r_led;
     end
 endmodule
 
