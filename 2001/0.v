@@ -57,6 +57,7 @@ module adder_tb();
         i_rst=1'b1;
         i_enable=3'b100;
         for(int i=0;i<40;i++)begin
+            #1;
             i_switch=$urandom%8;
             
             if($urandom%7==0)begin
@@ -73,7 +74,6 @@ module adder_tb();
                 i_rst<=1'b0;
             end
             
-            #1;
         end
     	$finish;
 	end
