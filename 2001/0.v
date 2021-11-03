@@ -85,7 +85,7 @@ module adder_tb();
 	
     
     always@(*)begin
-        mismatch<=!($isunknown(1'bx));   //&&y_led!==r_led;
+        mismatch<=!($isunknown(r_led));   //&&y_led!==r_led;
     end
 endmodule
 
