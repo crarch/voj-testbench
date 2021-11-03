@@ -66,6 +66,13 @@ module adder_tb();
                 i_enable=3'b100;
             end
             
+            if($urandom%11==0)begin
+                i_rst=1'b1;
+            end else
+            begin
+                i_rst=1'b0;
+            end
+            
             #1;
         end
     	$finish;
@@ -91,6 +98,13 @@ module reference
     output [7:0] led 
 );
     
-    assign led=8'hff-((1<<(switch))&({8{(enable==3'd4)}}));//fix me
+    always@(posedge clk or posedge rst)begin
+        if(rst)begin
+            led<=8'hff
+        end else
+        begin
+            led<=8'hff-((1<<(switch))&({8{(enable==3'd4)}}));//fix me
+        end
+    end
     
 endmodule
