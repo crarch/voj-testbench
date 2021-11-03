@@ -95,7 +95,7 @@ module reference
     input clk,rst,
     input [2:0] enable,
     input [2:0] switch,
-    output [7:0] led 
+    output reg [7:0] led 
 );
     
     always@(posedge clk or posedge rst)begin
