@@ -85,7 +85,7 @@ module adder_tb();
 	
     
     always@(*)begin
-        mismatch=(r_led!=='x)&&y_led!==r_led;
+        mismatch=(r_led==='x)&&y_led!==r_led;
     end
 endmodule
 
