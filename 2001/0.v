@@ -100,7 +100,7 @@ module reference
     
     always@(posedge clk or posedge rst)begin
         if(rst)begin
-            led<=8'hff
+            led<=8'hff;
         end else
         begin
             led<=8'hff-((1<<(switch))&({8{(enable==3'd4)}}));//fix me
