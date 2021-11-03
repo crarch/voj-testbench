@@ -54,7 +54,7 @@ module adder_tb();
         seed=$urandom(seed);
         
         i_clk=1'b0;
-        i_rst=1'b1;
+        i_rst=1'b0;
         i_enable=3'b100;
         for(int i=0;i<40;i++)begin
             i_switch=$urandom%8;
@@ -85,7 +85,7 @@ module adder_tb();
 	
     
     always@(*)begin
-        mismatch=(r_led!==3'bxxx)&&(y_led!==r_led);
+        mismatch=(r_led===3'bxxx)?1'b0:(y_led!==r_led);
     end
 endmodule
 
