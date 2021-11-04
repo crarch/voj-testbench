@@ -103,7 +103,7 @@ module reference
             led<=8'hff;
         end else
         begin
-            led<=8'hff-((1<<(switch))&({8{(enable==3'd4)}}));//fix me
+            led<=~((enable==3'd4)<<(switch));//fix me
         end
     end
     
