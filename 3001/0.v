@@ -44,14 +44,14 @@ module adder_tb();
     
     always begin
         #1;
-        clk<=~clk;
+        i_clk<=~i_clk;
     end
     
 	
 	initial begin
-        clk=0;
-        rst=0;
-        button=1;
+        i_clk=0;
+        i_rst=0;
+        i_button=1;
 	$finish;
 	end
 	
