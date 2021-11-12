@@ -53,10 +53,17 @@ module adder_tb();
     
 	
 	initial begin
+        reg [31:0] seed;
+        int fh;
+        fh = $fopen("/dev/urandom", "r");
+        $fgets(seed,fh);
+        $fclose(fh);
+        seed=$urandom(seed);
+        
         i_clk=0;
         i_rst=1;
         i_button=1;
-        i_switch=3'd2;
+        i_switch=$urandom%8;
         #1;
         i_rst=0;
         #19;
