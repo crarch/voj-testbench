@@ -50,8 +50,11 @@ module adder_tb();
 	
 	initial begin
         i_clk=0;
-        i_rst=0;
+        i_rst=1;
         i_button=1;
+        #1;
+        i_rst=0;
+        #19;
 	$finish;
 	end
 	
