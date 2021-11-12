@@ -16,7 +16,7 @@ module adder_tb();
         .clk(i_clk),
         .rst(i_rst),
         .button(i_button),
-        .switch(i_switch)
+        .switch(i_switch),
         .led(y_led)
 	);
     
@@ -24,7 +24,7 @@ module adder_tb();
         .clk(i_clk),
         .rst(i_rst),
         .button(i_button),
-        .switch(i_switch)
+        .switch(i_switch),
         .led(r_led)
 	);
     
