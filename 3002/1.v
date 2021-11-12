@@ -68,6 +68,7 @@ module adder_tb();
         i_rst=0;
         for(int i=0;i<29;i++)begin
             i_rst=($urandom%19==0);
+            i_button=!($urandom%23==0);
             #1;
         end
 	$finish;
