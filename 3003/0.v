@@ -89,7 +89,7 @@ module reference(
     reg [16:0] sum;
     always@(posedge clk or posedge rst)begin
         if(rst)sum<=17'b1;
-        else if(sum=17'h10000)sum<=sum;
+        else if(sum==17'h10000)sum<=sum;
         else sum<=sum<<1;
     end
     
