@@ -62,7 +62,7 @@ module adder_tb();
         i_button=1;
         #1;
         i_rst=0;
-        #19;
+        #39;
 	$finish;
 	end
 	
