@@ -95,8 +95,6 @@ module reference(
     
     
     
-    always@(*)begin
-        led=sum-17'b1;
-    end
+    assign led=sum-17'b1;
     
 endmodule
